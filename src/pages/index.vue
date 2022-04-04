@@ -103,4 +103,11 @@ export default {
     rgba(202, 203, 203, 1) 100%
   );
 }
+
+.bg-button:hover {
+  background: white;
+  box-shadow: 1px -2px 143px 11px rgba(255, 255, 255, 0.77);
+  -webkit-box-shadow: 1px -2px 143px 11px rgba(255, 255, 255, 0.77);
+  -moz-box-shadow: 1px -2px 143px 11px rgba(255, 255, 255, 0.77);
+}
 </style>
