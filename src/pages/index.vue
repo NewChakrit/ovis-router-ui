@@ -16,9 +16,15 @@
       <div v-for="c in col1">
         <div class="flex justify-center" v-for="r in row">
           <button
-            class="shadow-gray-900 bg-button w-9 my-2px mx-4px rounded-md border-gray-800 border-2 text-xs h-[30px]"
+            class="shadow-gray-900 bg-button w-9 my-2px mx-4px rounded-md border-gray-500 border-1 text-[10px] h-[30px]"
           >
-            {{ c }}
+            {{
+              r === 1
+                ? btn1Row1[c - 1]
+                : r === 2
+                ? btn1Row2[c - 1]
+                : btn1Row3[c - 1]
+            }}
           </button>
         </div>
       </div>
@@ -30,9 +36,15 @@
       <div v-for="c in col2">
         <div v-for="r in row">
           <button
-            class="bg-button w-9 my-2px mx-4px rounded-md border-gray-800 border-2 text-xs h-[30px]"
+            class="bg-button w-9 my-2px mx-4px rounded-md border-gray-500 border-1 text-[10px] h-[30px]"
           >
-            {{ c }}
+            {{
+              r === 1
+                ? btn2Row1[c - 1]
+                : r === 2
+                ? btn2Row2[c - 1]
+                : btn2Row3[c - 1]
+            }}
           </button>
         </div>
       </div>
@@ -73,13 +85,39 @@
 <script>
 export default {
   data() {
-    for (let i; i < 22; i++) {
-      i += 1;
-    }
+    // btn1
+    const btn1Row1 = [1, 4, 7, 10, 13, 16, 19];
+    const btn1Row2 = [2, 5, 8, 11, 14, 17, 20];
+    const btn1Row3 = [3, 6, 9, 12, 15, 18];
+
+    // const btn1 = [
+    //   [1, 4, 7, 10, 13, 16, 19],
+    //   [2, 5, 8, 11, 14, 17, 20],
+    //   [3, 6, 9, 12, 15, 18],
+    // ];
+
+    // btn2
+    const btn2Row1 = ["SRC", "MENU"];
+    const btn2Row2 = ["DEST", "VIDEO"];
+    const btn2Row3 = ["CLEAR", "TAKE"];
+
+    // const btn2 = [
+    //   ["SRC", "MENU"],
+    //   ["DEST", "VIDEO"],
+    //   ["CLEAR", "TAKE"],
+    // ];
     return {
       row: 3,
       col1: 7,
       col2: 2,
+      btn1Row1,
+      btn1Row2,
+      btn1Row3,
+      btn2Row1,
+      btn2Row2,
+      btn2Row3,
+      // btn1,
+      // btn2,
     };
   },
 };
@@ -105,7 +143,12 @@ export default {
 }
 
 .bg-button:hover {
-  background: white;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(255, 255, 255, 1) 71%,
+    rgba(171, 186, 206, 1) 100%,
+    rgba(146, 161, 176, 1) 100%
+  );
   box-shadow: 1px -2px 143px 11px rgba(255, 255, 255, 0.77);
   -webkit-box-shadow: 1px -2px 143px 11px rgba(255, 255, 255, 0.77);
   -moz-box-shadow: 1px -2px 143px 11px rgba(255, 255, 255, 0.77);
